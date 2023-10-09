@@ -2,10 +2,22 @@ all_digits = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 class number{
     constructor(digits, base){
-        if(typeof(digits) != "string" || typeof(base) != "number") console.error("type error")
+        this.error = false
 
-        this.digits = digits.split("").map((a)=>{ return all_digits.search(a.toUpperCase()) }).reverse();
-        if(base < 2) base = 2
+        if(typeof(digits) != "string" || typeof(base) != "number") this.error = true
+        this.digits = digits.split("").map((a)=>{
+            if(all_digits.search(a.toUpperCase()) == -1) this.error = true
+            return all_digits.search(a.toUpperCase())
+        }).reverse();
+        for(let i in this.digits){
+            if(this.digits[i] >= base){
+                this.digits = [0]
+                this.error = true
+                break
+            }
+        }
+
+        if(base < 2) this.error = true
         this.base = base;
     }
     get_string(){
@@ -24,7 +36,7 @@ class number{
         let old_div = this.get_decimal_int()
         let new_digits = []
         let i = 0
-        while(old_div > 0 && i < 20){
+        while(old_div > 0 && i < 64){
             i++
             let remainder = old_div % new_base
             let div = (old_div - remainder) / new_base
