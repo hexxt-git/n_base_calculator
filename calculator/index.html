@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" , initial-scale="1.0">
+    <title>calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="../functions.js" defer></script>
+    <script src="application.js" defer></script>
+</head>
+<body>
+    <div id="container1">
+        <h1 id="header">calculator</h1>
+        <div id="digits-field" class="field">
+            <span>a :</span>
+            <input id="digits-input-a" type="text" value="1">
+        </div>
+        <div id="digits-field" class="field">
+            <span>b :</span>
+            <input id="digits-input-b" type="text" value="1">
+        </div>
+        <div id="line"></div>
+        <div id="digits-field" class="field">
+            <span>&nbsp;&nbsp;=</span>
+            <input id="digits-input-c" type="text">
+        </div>
+        
+    </div>
+    <div id="container2">
+        <div class="field" style="width: 200px;">
+            select base :
+            <input id="base-input" type="text" style="border-bottom: solid white 1px ;" value="10">
+        </div>
+        <div id="operation-field" class="radio-field">
+            select operation :
+            <div>
+                addition :
+                <input id="add" name="operation-input" type="radio" checked="true">
+            </div>
+            <div>
+                subtraction :
+                <input id="sub" name="operation-input" type="radio">
+            </div>
+            <div>
+                multiplication :
+                <input id="mul" name="operation-input" type="radio">
+            </div>
+            <div>
+                division :
+                <input id="div" name="operation-input" type="radio">
+            </div>            
+        </div>
+        
+    </div>
+</body>
+</html>
