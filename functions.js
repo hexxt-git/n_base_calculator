@@ -5,8 +5,8 @@ class number{
         if(typeof(digits) != "string" || typeof(base) != "number") console.error("type error")
 
         this.digits = digits.split("").map((a)=>{ return all_digits.search(a.toUpperCase()) }).reverse();
+        if(base < 2) base = 2
         this.base = base;
-
     }
     get_string(){
         if(this.digits.length == 0) return "0"
@@ -23,7 +23,9 @@ class number{
     convert_base(new_base){
         let old_div = this.get_decimal_int()
         let new_digits = []
-        while(old_div > 0){
+        let i = 0
+        while(old_div > 0 && i < 20){
+            i++
             let remainder = old_div % new_base
             let div = (old_div - remainder) / new_base
             old_div = div
