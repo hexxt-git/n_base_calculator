@@ -9,4 +9,5 @@ button.addEventListener("click", ()=>{
     a.convert_base(to_base)
 
     document.getElementById("result-input").value = a.get_string()
+    if(a.error) document.getElementById("result-input").value = "error"
 })
